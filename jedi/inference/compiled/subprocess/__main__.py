@@ -18,6 +18,9 @@ del sys.path[0]
 if sys.version_info > (3, 4):
     from importlib.machinery import PathFinder
 
+    import importlib
+    importlib.machinery.SOURCE_SUFFIXES.append('.star')
+
     class _ExactImporter(object):
         def __init__(self, path_dct):
             self._path_dct = path_dct
